@@ -1,4 +1,4 @@
-from user import User
+from resources.user import User
 from werkzeug.security import safe_str_cmp
 # in-mem data base
 '''
@@ -10,12 +10,8 @@ users  = [
     }
 ]
 '''
-#use objects insetad of dict
-users = [
-    User(1,'bob','asdf')
-]
-# index on user name
 '''
+# index on user name
 username_mapping = { 'bob' :
     {
         'id': 1,
@@ -24,6 +20,10 @@ username_mapping = { 'bob' :
     }
 }
 '''
+#use objects insetad of dict
+users = [
+    User(1,'bob','asdf')
+]
 username_mapping = {u.username: u for u in users}
 username_id      = {u.id: u for u in users}
 # index on user id
